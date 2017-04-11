@@ -8,11 +8,9 @@ def maior_sequencia(lista):
         else:
             if len(lista_intermediaria) > len(lista_resultante):
                 lista_resultante = lista_intermediaria
-                lista_intermediaria = []
-                lista_intermediaria.append(lista[i])
+                lista_intermediaria = [lista[i]]
             else:
-                lista_intermediaria = []
-                lista_intermediaria.append(lista[i])
+                lista_intermediaria = [lista[i]]
     if len(lista_intermediaria) > len(lista_resultante):
         lista_resultante = lista_intermediaria
 
@@ -20,5 +18,5 @@ def maior_sequencia(lista):
 
 
 if __name__ == '__main__':
-    lista = [1, 2, 3, 4, 9, 10, 11, 12, 13, 14, 21, 22, 23, 24, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
-    print(maior_sequencia(lista))
+    minha_lista = [1, 2, 3, 4, 9, 10, 11, 12, 13, 14, 21, 22, 23, 24, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+    print(maior_sequencia(minha_lista))
