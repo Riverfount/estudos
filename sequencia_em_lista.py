@@ -17,7 +17,6 @@ def maior_sequencia(lista):
                 lista_intermediaria = [lista[i]]
     if len(lista_intermediaria) > len(lista_resultante):
         lista_resultante = lista_intermediaria
-
     return lista_resultante
 
 
