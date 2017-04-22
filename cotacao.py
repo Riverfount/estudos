@@ -2,13 +2,6 @@
 # -*- coding: UTF-8 -*-
 
 
-"""
-Programa: Calcula o binômio de Newton
-Autor: Vicente Eduardo Ribeiro Marçal
-Versão: 1.0
-Data: 06 de março de 2017
-"""
-
 import requests
 import json
 import time
