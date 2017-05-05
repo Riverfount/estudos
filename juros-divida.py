@@ -9,8 +9,8 @@ acumulador = valor_emprestado
 meses = 0
 contador = True
 
-while contador:
-    acumulador += (valor_emprestado * (juros/100)) - parcela
+while contador:                                              # Há um erro na lógica, o acumulador não vai zerar!
+    acumulador += (valor_emprestado * (juros/100)) - parcela # É necessário corrigir isso!
     meses += 1
     if acumulador <= 0:
         break
