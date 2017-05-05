@@ -9,9 +9,10 @@ Nota01 = int(input("Digite a primeira nota: "))
 Nota02 = int(input("Digite a segunda nota: "))
 Nota03 = int(input("Digite a terceira nota: "))
 Nota04 = int(input("Digite a quarta nota: "))
+Nota05 = int(input("Digite a quinta nota: "))
 
 # Calcula a média
-Media = ((Nota01 + Nota02 + Nota03 + Nota04) / 4)
+Media = ((Nota01 + Nota02 + Nota03 + Nota04 + Nota05) / 5)
 
 # Imprime o resultado
 print("A média aritmética é", Media)
