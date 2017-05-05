@@ -14,10 +14,10 @@ def delta(a,b,c):
 
 # Define a função Báskara que retorna as raízes da equação de segundo grau
 def baskara(a,b,c):
-    delta = delta(a, b, c)
-    if delta < 0:
+    d = delta(a, b, c)
+    if d < 0:
         print("Esta equação não possui raízes reais")
-    elif delta == 0:
+    elif d == 0:
         raiz = -b/(2 * a)
         print("A raiz desta equação é %5.2f" % raiz)
     else:
@@ -26,7 +26,11 @@ def baskara(a,b,c):
         print("As raízes da equação são x1=%5.2f e x2=%6.2f" % (raiz1, raiz2))
 
 
-print("========== Resolvendo Equação do Segundo Grau ==========")
+print("""
+      ========================================================
+      ========== Resolvendo Equação do Segundo Grau ==========
+      ========================================================
+      """)
 a = float(input("Digite o valor de a: "))
 b = float(input("Digite o valor de b: "))
 c = float(input("Digite o valor de c: "))
