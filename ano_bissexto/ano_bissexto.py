@@ -25,36 +25,27 @@ Não são bissextos por exemplo:
 
 Escreva uma função que determina se um determinado ano informado é bissexto ou não.
 """
-from functools import partial
 
 
 multiplo_de = lambda base, num: num % base == 0
-multiplo_de_4 = partial(multiplo_de, 4)
-multiplo_de_100 = partial(multiplo_de, 100)
-multiplo_de_400 = partial(multiplo_de, 400)
 
 
 def bissexto(ano):
 
-    tipo = ''
-
-    if multiplo_de_4(ano):
-        if not multiplo_de_100(ano) or multiplo_de_400(ano):
-            tipo = 'É bissexto'
+    if multiplo_de(4, ano) and not multiplo_de(100, ano) or multiplo_de(400, ano):
+            return True
     else:
-        tipo = 'Não é bissexto'
-
-    return tipo
+        return False
 
 if __name__ == '__main__':
-    assert bissexto(1600) == 'É bissexto'
-    assert bissexto(1732) == 'É bissexto'
-    assert bissexto(1888) == 'É bissexto'
-    assert bissexto(1944) == 'É bissexto'
-    assert bissexto(2008) == 'É bissexto'
+    assert bissexto(1600)
+    assert bissexto(1732)
+    assert bissexto(1888)
+    assert bissexto(1944)
+    assert bissexto(2008)
 
-    assert bissexto(1742) == 'Não é bissexto'
-    assert bissexto(1889) == 'Não é bissexto'
-    assert bissexto(1951) == 'Não é bissexto'
-    assert bissexto(2011) == 'Não é bissexto'
-    assert bissexto(2015) == 'Não é bissexto'
+    assert not bissexto(1742)
+    assert not bissexto(1889)
+    assert not bissexto(1951)
+    assert not bissexto(2011)
+    assert not bissexto(2015)
