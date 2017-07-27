@@ -16,7 +16,10 @@ cells = []
 
 table = bsObj.table
 
-divJogo = bsObj.find('div', {'class': 'title-bar clearfix'})
+div = bsObj.find('div', {'class': 'title-bar clearfix'})
+concurso = str(div.h2).split()
+concurso_num = concurso[4]
+concurso_data = str(concurso[5])[1:11]
 
 for row in table.findAll('tr'):
     cells.append(row.findAll('td'))
@@ -25,14 +28,12 @@ for cell in cells:
     for i in range(len(cell)):
         nums_sorteados.append(str(cell[i])[4:6])
 
+
 for num in jogoVicente:
     if num in nums_sorteados:
         resultado += 1
 
-
-concurso = str(divJogo.h2).split()
-concurso_num = concurso[4]
-concurso_data = str(concurso[5])[1:11]
-
+print('=' * 30)
 print(f'Concurso: {concurso_num} de {concurso_data}')
-print(f'O jogo do Vicente acertou {resultado} números')
+print(f'Vicente acertou {resultado} números')
+print('=' * 30)
