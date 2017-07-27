@@ -24,9 +24,12 @@ def result_loterias(concurso, bsObj):
     nums_sorteados = []
     cells = []
 
-    if concurso == 'lotomania':
+    if concurso == 'lotomania' or concurso == 'lotofacil':
 
-        table = bsObj.table
+        if concurso == 'lotofacil':
+            table = bsObj.find('table', {'class': 'simple-table lotofacil'})
+        else:
+            table = bsObj.table
 
         for row in table.findAll('tr'):
             cells.append(row.findAll('td'))
@@ -35,27 +38,42 @@ def result_loterias(concurso, bsObj):
             for i in range(len(cell)):
                 nums_sorteados.append(str(cell[i])[4:6])
 
-    elif concurso == 'megasena':
+    elif concurso == 'megasena' or concurso == 'quina' or 'timemania':
 
-        ul = bsObj.find('ul', {'class': 'numbers mega-sena'})
+        if concurso == 'megasena':
+            classe = 'mega-sena'
+        else:
+            classe = concurso
+
+        ul = bsObj.find('ul', {'class': classe})
         for i, li in enumerate(ul.findAll('li')):
             cells.append(li)
             nums_sorteados.append(str(cells[i])[4:6])
-        '''
-        for i, cell in enumerate(cells):
-            nums_sorteados.append(str(cell[i])[4:6])
-        '''
+
     return [concurso, nums_sorteados]
 
 
 if __name__ == '__main__':
+    lista_concursos = ['megasena', 'lotomania', 'quina', 'timemania', 'lotofacil']
+    print('==== Resultado de Loteria ====')
+    print('=' * 30)
+    print(' ' * 13 + 'Menu' + ' ' * 13)
+    print('=' * 30)
+    for i, c in enumerate(lista_concursos):
+        print(f'{i + 1} - {str(lista_concursos[i]).title()}')
 
-    print('Resultado de Loteria')
-    ent_concurso = int(input('Você quer saber o resultado de qual loteria (1) Mega-Sena (2) Lotomania: '))
+    ent_concurso = int(input('Qual sua opção: '))
     if ent_concurso == 1:
         concurso = 'megasena'
-    else:
+    elif ent_concurso == 2:
         concurso = 'lotomania'
+    elif ent_concurso == 3:
+        concurso = 'quina'
+    elif ent_concurso == 4:
+        concurso = 'timemania'
+    elif ent_concurso == 5:
+        concurso = 'lotofacil'
+
     bsObj = parse_concurso(concurso)
     concurso_num, concurso_data = dados_concurso(bsObj)
 
@@ -65,7 +83,7 @@ if __name__ == '__main__':
     print(f'Concurso: {concurso_num} de {concurso_data}')
     print(f'Os números sorteados foram:')
     for i, num in enumerate(nums_sorteados):
-        if i in (5, 10, 15) and concurso != 'megasena':
+        if i in (5, 10, 15) and concurso not in ('megasena', 'timemania'):
             print()
         print(f'{num}', end = ' ')
     print()
