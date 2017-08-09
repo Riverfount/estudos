@@ -13,7 +13,12 @@ def dados_concurso(bsObj):
 def parse_concurso(concurso):
 
     url = 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/' + concurso
-    html = requests.request('GET', url)
+
+    try:
+        html = requests.request('GET', url)
+    except Exception as e:
+        print(f'Ocorreu o erro {e} no acesso ao site da Caixa Econômica Federal!')
+
     bsObj = BeautifulSoup(html.text, 'html.parser')
 
     return bsObj
@@ -55,9 +60,9 @@ def result_loterias(concurso, bsObj):
 
 if __name__ == '__main__':
     lista_concursos = ['megasena', 'lotomania', 'quina', 'timemania', 'lotofacil']
-    print('==== Resultado de Loteria ====')
+    print(f'{" Resultado de Loteria ":=^30}')
     print('=' * 30)
-    print(' ' * 13 + 'Menu' + ' ' * 13)
+    print(f'{"Menu":^30}')
     print('=' * 30)
     for i, c in enumerate(lista_concursos):
         print(f'{i + 1} - {str(lista_concursos[i]).title()}')
@@ -79,7 +84,7 @@ if __name__ == '__main__':
 
     concurso, nums_sorteados = result_loterias(concurso, bsObj)
     print('=' * 30)
-    print(concurso.upper())
+    print(f'{concurso.title():^30}')
     print(f'Concurso: {concurso_num} de {concurso_data}')
     print(f'Os números sorteados foram:')
     for i, num in enumerate(nums_sorteados):

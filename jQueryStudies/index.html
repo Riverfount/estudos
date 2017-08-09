@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Tests</title>
+    <style>
+        .forte {
+            background-color: #CCC;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#manchete').click(function () {
+                $(this).toggleClass('forte');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>
+        Tesando jQuery
+    </h1>
+    <p>
+        Meu primerio parágrafo! Muito texto poderá ser escrito mas <strong id="manchete">cada parágrafo em seu
+        lugar</strong>!
+    </p>
+    <p>
+        Aqui, portanto inicia meu segundo parágrafo, para deixar o texto <strong class="forte">estruturado</strong>
+        cada
+        parágrafo
+        deve estar envolto pela tag p.
+    </p>
+</body>
+</html>
