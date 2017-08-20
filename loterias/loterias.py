@@ -69,26 +69,26 @@ if __name__ == '__main__':
 
     ent_concurso = int(input('Qual sua opção: '))
     if ent_concurso == 1:
-        concurso = 'megasena'
+        tipo_concurso = 'megasena'
     elif ent_concurso == 2:
-        concurso = 'lotomania'
+        tipo_concurso = 'lotomania'
     elif ent_concurso == 3:
-        concurso = 'quina'
+        tipo_concurso = 'quina'
     elif ent_concurso == 4:
-        concurso = 'timemania'
+        tipo_concurso = 'timemania'
     elif ent_concurso == 5:
-        concurso = 'lotofacil'
+        tipo_concurso = 'lotofacil'
 
-    bsObj = parse_concurso(concurso)
+    bsObj = parse_concurso(tipo_concurso)
     concurso_num, concurso_data = dados_concurso(bsObj)
 
-    concurso, nums_sorteados = result_loterias(concurso, bsObj)
+    tipo_concurso, nums_sorteados = result_loterias(tipo_concurso, bsObj)
     print('=' * 30)
-    print(f'{concurso.title():^30}')
+    print(f'{tipo_concurso.title():^30}')
     print(f'Concurso: {concurso_num} de {concurso_data}')
     print(f'Os números sorteados foram:')
     for i, num in enumerate(nums_sorteados):
-        if i in (5, 10, 15) and concurso not in ('megasena', 'timemania'):
+        if i in (5, 10, 15) and tipo_concurso not in ('megasena', 'timemania'):
             print()
         print(f'{num}', end = ' ')
     print()
