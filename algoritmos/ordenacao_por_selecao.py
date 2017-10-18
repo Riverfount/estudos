@@ -1,17 +1,21 @@
+def menor_elemento(lista):
+    menor_elemento = lista[0]
+    menor_indice = 0
+
+    for i, elemento in enumerate(lista):
+        if elemento < menor_elemento:
+            menor_elemento = elemento
+            menor_indice = i
+
+    return menor_indice
 
 
 def ordena_por_selecao(lista):
 
     nova_lista = []
     for i in range(len(lista)):
-        if i == len(lista):
-            nova_lista.append(lista[i])
-            return nova_lista
-        else:
-            if lista[i] < lista[i + 1]:
-                nova_lista.append(lista[i])
-            else:
-                nova_lista.append(lista[i + 1])
+        menor = menor_elemento(lista)
+        nova_lista.append(lista.pop(menor))
 
     return nova_lista
 
