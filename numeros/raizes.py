@@ -8,7 +8,7 @@ Data: 08 de fevereiro de 2017
 import math
 
 
-def delta(a,b,c):
+def delta(a, b, c):
     return (b ** 2) - (4 * a * c)
 
 
