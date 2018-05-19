@@ -8,3 +8,5 @@ inspection/
 .spyproject/
 .vscode
 .estudos
+.ipynb_checkpoints/
+.py_studies/
