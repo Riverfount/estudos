@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "My First Post into a new form to test an API"
+    }
+  ],
+  "profile": {
+    "name": "Riverfount"
+  }
+}
